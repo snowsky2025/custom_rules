@@ -1,0 +1,8 @@
+# MyReject.list
+# 自定义拦截规则集（广告 / 跟踪等）
+# 引用方式：
+#   RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/rules/MyReject.list,REJECT
+
+# ===== 示例：按需增删 =====
+DOMAIN-SUFFIX,example-ads.com
+DOMAIN-KEYWORD,doubleclick
