@@ -16,7 +16,7 @@ if [ -z "$(git status --porcelain)" ]; then
 fi
 
 # 1) 收集本次待提交的规则文件（.list / .yaml），换行分隔
-CHANGED="$(git status --porcelain | awk '{print $NF}' | grep -E '\.(list|yaml)$' || true)"
+CHANGED="$(git status --porcelain | awk '{print $NF}' | grep -E '\.(list|yaml|sgmodule)$' || true)"
 
 # 2) 提交并推送
 git add -A
@@ -26,7 +26,7 @@ echo "✅ 已推送：$MSG"
 
 # 3) 刷新 jsDelivr 缓存
 if [ -z "$CHANGED" ]; then
-  echo "ℹ️  本次没有改动规则文件(.list/.yaml)，跳过 CDN 刷新。"
+  echo "ℹ️  本次没有改动规则文件(.list/.yaml/.sgmodule)，跳过 CDN 刷新。"
   exit 0
 fi
 
