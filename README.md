@@ -68,13 +68,16 @@ rules:
 
 ## 维护
 
+改完规则后跑一键脚本，自动「提交 + 推送 + 刷新本次改动文件的 jsDelivr 缓存」：
+
 ```bash
-git add .
-git commit -m "update rules"
-git push
+./push.sh "update openai rules"   # 提交说明可省略，默认 "update rules"
 ```
 
-改完 push 后，在 Surge / Clash 客户端里「更新资源 / 刷新规则」即可重新拉取。
+然后在 Surge / Clash 客户端里「更新资源 / 刷新规则」即可拉到最新规则。
+
+> 手动等价操作：`git add . && git commit -m "..." && git push`，再对改动文件访问一次
+> `https://purge.jsdelivr.net/gh/snowsky2025/custom_rules@main/<路径>`。
 
 ## 来源致谢
 
