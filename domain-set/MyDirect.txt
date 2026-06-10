@@ -1,8 +1,0 @@
-# MyDirect domain-set
-# DOMAIN-SET 只能写域名/域名后缀（每行一个，. 开头表示后缀），不能写 IP / 关键词
-# 比 RULE-SET 匹配更快，适合纯域名列表。
-# 引用方式：
-#   DOMAIN-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/domain-set/MyDirect.txt,DIRECT
-
-.cn
-example-direct.com

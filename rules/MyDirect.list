@@ -1,8 +1,0 @@
-# MyDirect.list
-# 自定义需要直连的规则集
-# 引用方式：
-#   RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/rules/MyDirect.list,DIRECT
-
-# ===== 示例：按需增删 =====
-DOMAIN-SUFFIX,cn
-DOMAIN-SUFFIX,example-direct.com

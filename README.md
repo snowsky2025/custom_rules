@@ -1,50 +1,82 @@
-# surge-rules
+# custom_rules
 
-自用的 [Surge](https://nssurge.com/) 自定义规则集仓库。规则文件托管在 GitHub，通过 jsDelivr CDN 引用到 Surge 配置中，国内访问更稳定。
+自用的代理规则集仓库，按客户端分目录存放。规则文件托管在 GitHub，通过 jsDelivr CDN 引用，国内访问更稳定。
 
 ## 目录结构
 
 ```
-rules/        RULE-SET 规则集（支持 DOMAIN / DOMAIN-SUFFIX / DOMAIN-KEYWORD / IP-CIDR 等）
-  MyProxy.list    走代理
-  MyDirect.list   直连
-  MyReject.list   拦截
-domain-set/   DOMAIN-SET 纯域名列表（匹配更快，只能写域名/后缀）
-  MyDirect.txt
+surge/    Surge 规则集（RULE-SET，.list）
+  OpenAI.list      OpenAI / ChatGPT（源：blackmatrix7）
+  Anthropic.list   Claude / Claude Code（源：xiaolai）
+clash/    Clash 规则集（rule-provider，.yaml）
+  OpenAI.yaml      OpenAI / ChatGPT（源：blackmatrix7）
+  Anthropic.yaml   Claude / Claude Code（源：xiaolai）
 ```
 
-## 在 Surge 中使用
+> 规则较少时一个文件即可（如 OpenAI 35 条、Anthropic 13 条），直接放在对应客户端目录下。
+> 若某类规则将来拆得很细、文件较多，再在该客户端目录下建子文件夹（如 `surge/openai/`）。
 
-把下面的规则加到 Surge 配置文件的 `[Rule]` 段（注意顺序：越靠前优先级越高，REJECT/DIRECT 一般放前面）：
+## CDN 基础地址
+
+```
+https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/<路径>
+```
+
+## Surge 用法
+
+在 `Surge.conf` 的 `[Rule]` 段引用（`🍟 OpenAI` / `🖥️ ClaudeCode` 换成你自己的策略组名）：
 
 ```ini
 [Rule]
-RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/rules/MyReject.list,REJECT
-RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/rules/MyDirect.list,DIRECT
-RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/rules/MyProxy.list,PROXY
-# DOMAIN-SET 用法：
-DOMAIN-SET,https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/domain-set/MyDirect.txt,DIRECT
+RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/surge/OpenAI.list,🍟 OpenAI
+RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/surge/Anthropic.list,🖥️ ClaudeCode
 ```
 
-> 把 `PROXY` 换成你自己的策略组名称（如 `Proxy` / `节点选择`）。
+## Clash 用法
 
-## URL 说明
+在 `rule-providers` 里声明，再到 `rules` 引用：
 
-- **jsDelivr CDN（推荐）**：`https://cdn.jsdelivr.net/gh/snowsky2025/surge-rules@main/<路径>`
-  - `@main` 也可换成具体 tag / commit 锁定版本；用 `@latest` 取最新。
-  - CDN 有缓存（约 12h）。改完规则想立刻生效，可访问
-    `https://purge.jsdelivr.net/gh/snowsky2025/surge-rules@main/<路径>` 刷新缓存。
-- **GitHub raw（备用）**：`https://raw.githubusercontent.com/snowsky2025/surge-rules/main/<路径>`
+```yaml
+rule-providers:
+  openai:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/clash/OpenAI.yaml
+    path: ./ruleset/openai.yaml
+    interval: 86400
+  anthropic:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/clash/Anthropic.yaml
+    path: ./ruleset/anthropic.yaml
+    interval: 86400
 
-## 让 Surge 拉取最新规则
+rules:
+  - RULE-SET,openai,🍟 OpenAI
+  - RULE-SET,anthropic,🖥️ ClaudeCode
+```
 
-改完规则并 `git push` 后，在 Surge 里执行 **「更新所有资源 / Refresh Resources」**（或重载配置）即可重新拉取。
+> 注意 `behavior` 要和文件内容匹配：含 `DOMAIN-SUFFIX/IP-CIDR` 等多类型用 `classical`；纯 `+.domain` 列表（`payload:` 下）用 `domain`。Anthropic.yaml 为纯域名 `payload` 列表，可用 `domain`。
+
+## URL / 缓存说明
+
+- `@main` 可换成具体 tag / commit 锁定版本。
+- jsDelivr 有约 12h 缓存。改完想立即生效，访问一次
+  `https://purge.jsdelivr.net/gh/snowsky2025/custom_rules@main/<路径>` 刷新缓存。
+- 备用 raw 直链（国内可能不稳）：
+  `https://raw.githubusercontent.com/snowsky2025/custom_rules/main/<路径>`
 
 ## 维护
 
 ```bash
-# 编辑规则后提交
 git add .
 git commit -m "update rules"
 git push
 ```
+
+改完 push 后，在 Surge / Clash 客户端里「更新资源 / 刷新规则」即可重新拉取。
+
+## 来源致谢
+
+- [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) — OpenAI
+- [xiaolai/anthropic-claude-surge-rules-set](https://github.com/xiaolai/anthropic-claude-surge-rules-set) — Anthropic / Claude
