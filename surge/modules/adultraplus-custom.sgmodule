@@ -134,7 +134,6 @@ http:\/\/ad\.myfriday\.cn\/d\/json\/1\.1 _ reject
 ^https?:\/\/nnapp\.cloudbae\.cn\/mc\/api\/advert/ _ reject
 ^https?:\/\/nnapp\.cloudbae\.cn:\d+\/mc\/api\/advert/ _ reject
 ^https?:\/\/nex.163.com\/q _ reject
-^https?:\/\/news\.ssp\.qq\.com\/app _ reject
 ^https?:\/\/new-app-api\.ylyk\.com\/v\d\/user\/myinfo\/adviser _ reject
 ^https?:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/js\/.+\.js _ reject
 ^https?:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/index\.html _ reject
@@ -2948,3 +2947,10 @@ http:\/\/dili.sqcosmos.com\/jiekou\/endpage\/ad data="https://raw.githubusercont
 ^http:\/\/59\.82\.113\.10\/amdc\/mobileDispatch\?appkey=213807& data="https://raw.githubusercontent.com/deezertidal/Surge_Module/master/files/reject-dict.json"
 ^http:\/\/.+\.gamersky\.com\/.+\/adSystem\/ad\/.+ data="https://raw.githubusercontent.com/deezertidal/Surge_Module/master/files/reject-dict.json"
 ^http:\/\/.*babytree\.com/(plough\.do|go_search\/api\/mobile_search_new\/get_multi_search_default_keywords) data="https://raw.githubusercontent.com/deezertidal/Surge_Module/master/files/reject-200.txt"
+
+[Rule]
+# ====== 自定义：腾讯新闻开屏广告域名拦截 (snowsky2025) ======
+DOMAIN-SUFFIX,ssp.qq.com,REJECT
+DOMAIN,v.gdt.qq.com,REJECT
+DOMAIN,rpt.gdt.qq.com,REJECT
+# ====== END ======
