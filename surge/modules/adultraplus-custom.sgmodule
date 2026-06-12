@@ -2949,8 +2949,22 @@ http:\/\/dili.sqcosmos.com\/jiekou\/endpage\/ad data="https://raw.githubusercont
 ^http:\/\/.*babytree\.com/(plough\.do|go_search\/api\/mobile_search_new\/get_multi_search_default_keywords) data="https://raw.githubusercontent.com/deezertidal/Surge_Module/master/files/reject-200.txt"
 
 [Rule]
-# ====== 自定义：腾讯新闻开屏广告域名拦截 (snowsky2025) ======
+# ====== 自定义：开屏广告域名拦截 (snowsky2025) ======
+# --- 腾讯新闻 ---
 DOMAIN-SUFFIX,ssp.qq.com,REJECT
-DOMAIN,v.gdt.qq.com,REJECT
-DOMAIN,rpt.gdt.qq.com,REJECT
+# --- 腾讯广告/广点通 GDT（腾讯新闻+豆瓣开屏竞价均走此）---
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,l.qq.com,REJECT
+DOMAIN-SUFFIX,e.qq.com,REJECT
+DOMAIN-SUFFIX,ugdtimg.com,REJECT
+DOMAIN,pgdt.gtimg.cn,REJECT
+# --- 豆瓣开屏第三方 SDK：穿山甲(字节)素材与竞价 ---
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+# --- 阿里 tanx 广告交易平台 ---
+DOMAIN-SUFFIX,tanx.com,REJECT
+# --- 豆瓣自家广告统计服务器 ---
+DOMAIN,erebor.douban.com,REJECT
 # ====== END ======
