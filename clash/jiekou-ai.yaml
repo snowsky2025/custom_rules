@@ -1,0 +1,4 @@
+# 接口AI (jiekou.ai) — Clash Rule Provider
+# 中转 API 服务: api.jiekou.ai 及全站子域
+payload:
+- +.jiekou.ai

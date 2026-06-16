@@ -8,9 +8,11 @@
 surge/    Surge 规则集（RULE-SET，.list）
   OpenAI.list      OpenAI / ChatGPT（源：blackmatrix7）
   Anthropic.list   Claude / Claude Code（源：xiaolai）
+  jiekou-ai.list   接口AI 中转服务（api.jiekou.ai 全站）
 clash/    Clash 规则集（rule-provider，.yaml）
   OpenAI.yaml      OpenAI / ChatGPT（源：blackmatrix7）
   Anthropic.yaml   Claude / Claude Code（源：xiaolai）
+  jiekou-ai.yaml   接口AI 中转服务（api.jiekou.ai 全站）
 ```
 
 > 规则较少时一个文件即可（如 OpenAI 35 条、Anthropic 13 条），直接放在对应客户端目录下。

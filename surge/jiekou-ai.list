@@ -1,0 +1,8 @@
+# ============================================================
+# 接口AI (jiekou.ai) — 中转 API 服务规则集
+# 覆盖: api.jiekou.ai 及全站子域（控制台/文档/API 等）
+# Format: Surge / Surfboard
+# ============================================================
+
+# 主站 & API（api.jiekou.ai / jiekou.ai / *.jiekou.ai）
+DOMAIN-SUFFIX,jiekou.ai
