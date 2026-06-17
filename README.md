@@ -26,12 +26,12 @@ https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/<路径>
 
 ## Surge 用法
 
-在 `Surge.conf` 的 `[Rule]` 段引用（`🍟 OpenAI` / `🖥️ ClaudeCode` 换成你自己的策略组名）：
+在 `Surge.conf` 的 `[Rule]` 段引用（`🍟 OpenAI` / `🖥️ Anthropic` 换成你自己的策略组名）：
 
 ```ini
 [Rule]
 RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/surge/OpenAI.list,🍟 OpenAI
-RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/surge/Anthropic.list,🖥️ ClaudeCode
+RULE-SET,https://cdn.jsdelivr.net/gh/snowsky2025/custom_rules@main/surge/Anthropic.list,🖥️ Anthropic
 ```
 
 ## Clash 用法
@@ -55,10 +55,10 @@ rule-providers:
 
 rules:
   - RULE-SET,openai,🍟 OpenAI
-  - RULE-SET,anthropic,🖥️ ClaudeCode
+  - RULE-SET,anthropic,🖥️ Anthropic
 ```
 
-> 注意 `behavior` 要和文件内容匹配：含 `DOMAIN-SUFFIX/IP-CIDR` 等多类型用 `classical`；纯 `+.domain` 列表（`payload:` 下）用 `domain`。Anthropic.yaml 为纯域名 `payload` 列表，可用 `domain`。
+> 注意 `behavior` 要和文件内容匹配：含 `DOMAIN-SUFFIX/IP-CIDR` 等多类型用 `classical`；纯 `+.domain` 列表（`payload:` 下）用 `domain`。OpenAI.yaml、Anthropic.yaml 均含 IP-CIDR，统一用 `classical`。
 
 ## URL / 缓存说明
 

@@ -1,18 +1,24 @@
-# Anthropic / Claude — Clash Rule Provider
+# Anthropic / Claude — Clash Rule Provider (classical)
 # https://github.com/xiaolai/anthropic-claude-surge-rules-set
-# Generated: 2026-04-14
+# 与 surge/Anthropic.list 逐条对应（2026-06-17 同步，含 Anthropic IP 段）
 payload:
-- +.anthropic.com
-- +.claude.ai
-- +.claude.com
-- +.claudeusercontent.com
-- +.clau.de
-- +.modelcontextprotocol.io
-- downloads.claude.ai
-- storage.googleapis.com
-- cdn.growthbook.io
-- 160.79.104.0/23
-- 160.79.104.0/21
-- 2607:6bc0::/48
-- cdn.usefathom.com
-
+  # Core API & Services
+  - DOMAIN-SUFFIX,anthropic.com
+  # Claude Web & CLI
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,claude.com
+  - DOMAIN-SUFFIX,claudeusercontent.com
+  - DOMAIN-SUFFIX,clau.de
+  # MCP & Ecosystem
+  - DOMAIN-SUFFIX,modelcontextprotocol.io
+  # Updates & Distribution
+  - DOMAIN,downloads.claude.ai
+  - DOMAIN,storage.googleapis.com
+  # Feature Flags & Telemetry
+  - DOMAIN,cdn.growthbook.io
+  # Anthropic IP Ranges (AS399358)
+  - IP-CIDR,160.79.104.0/23,no-resolve
+  - IP-CIDR,160.79.104.0/21,no-resolve
+  - IP-CIDR6,2607:6bc0::/48,no-resolve
+  # Third-Party Dependencies
+  - DOMAIN,cdn.usefathom.com
