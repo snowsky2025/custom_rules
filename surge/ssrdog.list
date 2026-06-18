@@ -1,0 +1,8 @@
+# ============================================================
+# SSRDOG — 机场服务门户规则集
+# 覆盖: ssrdog.com 及全站子域（用户面板 dog.ssrdog.com 等）
+# Format: Surge / Surfboard
+# ============================================================
+
+# 主站 & 用户面板（ssrdog.com / dog.ssrdog.com / *.ssrdog.com）
+DOMAIN-SUFFIX,ssrdog.com

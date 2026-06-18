@@ -1,0 +1,5 @@
+# SSRDOG — Clash Rule Provider (classical)
+# 机场服务门户: ssrdog.com 及全站子域（用户面板 dog.ssrdog.com 等）
+# 与 surge/ssrdog.list 逐条对应（2026-06-18 同步）
+payload:
+  - DOMAIN-SUFFIX,ssrdog.com
