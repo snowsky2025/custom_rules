@@ -11,12 +11,14 @@ surge/    Surge 规则集（RULE-SET，.list）
   jiekou-ai.list   接口AI 中转服务（api.jiekou.ai 全站）
   Nintendo.list     任天堂 Nintendo（源：blackmatrix7，126 条）
   ssrdog.list       SSRDOG 机场门户（ssrdog.com 全站）
+  splash-ad-reject.list  开屏广告整域拦截（38 条，配 REJECT；源：自抓 iPhone Surge 模块）
 clash/    Clash 规则集（rule-provider，.yaml）
   OpenAI.yaml      OpenAI / ChatGPT（源：blackmatrix7）
   Anthropic.yaml   Claude / Claude Code（源：xiaolai）
   jiekou-ai.yaml   接口AI 中转服务（api.jiekou.ai 全站）
   Nintendo.yaml     任天堂 Nintendo（源：blackmatrix7，126 条）
   ssrdog.yaml       SSRDOG 机场门户（ssrdog.com 全站）
+  splash-ad-reject.yaml  开屏广告整域拦截（38 条，配 REJECT；classical）
 ```
 
 > 规则较少时一个文件即可（如 OpenAI 35 条、Anthropic 13 条），直接放在对应客户端目录下。

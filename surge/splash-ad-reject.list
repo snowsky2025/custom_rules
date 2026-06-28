@@ -1,0 +1,47 @@
+# 开屏广告拦截 — Surge RULE-SET
+# 从 splash-ad-blocker.sgmodule 提取的「整域拦截」子集（不含 MITM/URL Rewrite/Map Local）
+# 用途：给网关 Surge / Mac Surge 等用；iPhone 仍用完整模块（含 B站 MITM 部分）
+# 与 clash/splash-ad-reject.yaml 逐条对应
+# === 通用第三方广告 SDK（穿山甲 / 广点通GDT / 阿里tanx）===
+DOMAIN-KEYWORD,pangolin-sdk-toutiao
+DOMAIN-SUFFIX,pglstatp-toutiao.com
+DOMAIN-SUFFIX,gdt.qq.com
+DOMAIN-SUFFIX,l.qq.com
+DOMAIN-SUFFIX,e.qq.com
+DOMAIN-SUFFIX,ugdtimg.com
+DOMAIN-SUFFIX,pgdt.gtimg.cn
+DOMAIN-SUFFIX,gdtimg.com
+DOMAIN-SUFFIX,tanx.com
+DOMAIN-SUFFIX,alimama.com
+DOMAIN-SUFFIX,mmstat.com
+# === 通用广告中介 SDK / ADX 交易所 ===
+DOMAIN-SUFFIX,yunxish.com
+DOMAIN-SUFFIX,iggrowth.cn
+DOMAIN-SUFFIX,mentamob.com
+DOMAIN-SUFFIX,66mobi.com
+DOMAIN-SUFFIX,hubcloud.com.cn
+DOMAIN-SUFFIX,beizi.biz
+DOMAIN-SUFFIX,zhangyuyidong.cn
+DOMAIN-SUFFIX,adwangmai.com
+DOMAIN-SUFFIX,ubixioe.com
+DOMAIN-SUFFIX,vlion.cn
+DOMAIN-SUFFIX,halomobi.com
+DOMAIN-SUFFIX,adinall.com
+DOMAIN-SUFFIX,adkwai.com
+# === 广告专属子域（父域是正常业务，只拦广告子域）===
+DOMAIN,afd.baidu.com
+DOMAIN,afdconf.baidu.com
+DOMAIN-SUFFIX,rmb.bdstatic.com
+DOMAIN,impdsp.meituan.com
+DOMAIN,adx.ys7.com
+# === UC 浏览器 ===
+DOMAIN-SUFFIX,1rtb.net
+DOMAIN-SUFFIX,e.kuaishou.com
+DOMAIN-SUFFIX,e.kuaishou.cn
+DOMAIN-SUFFIX,58iclick.com
+DOMAIN,dsp-x.jd.com
+DOMAIN,mobads.baidu.com
+DOMAIN,mobads-logs.baidu.com
+DOMAIN,ssp-sdk-config.uc.cn
+# === bilibili（仅商业广告域；开屏 splash 需 MITM，Surge 模块里单独处理）===
+DOMAIN,cm.bilibili.com
