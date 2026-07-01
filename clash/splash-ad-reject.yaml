@@ -54,3 +54,5 @@ payload:
   - DOMAIN-KEYWORD,acshow
   - DOMAIN,adserviceretry.kugou.com
   - DOMAIN,adservice.kugou.com
+  # === 央视新闻（CMG 中央广播电视总台广告交易所 ADX）===
+  - DOMAIN-SUFFIX,cmgadx.com
