@@ -47,3 +47,10 @@ payload:
   - DOMAIN,ssp-sdk-config.uc.cn
   # === bilibili（仅商业广告域；开屏 splash 需 MITM，Clash 无法处理）===
   - DOMAIN,cm.bilibili.com
+  # === 12306（开屏打车广告专用域）===
+  - DOMAIN,ad.12306.cn
+  # === 酷狗音乐（腾讯音乐广告 + 自家 acshow 广告展示各地区变体）===
+  - DOMAIN,tmeadcomm.y.qq.com
+  - DOMAIN-KEYWORD,acshow
+  - DOMAIN,adserviceretry.kugou.com
+  - DOMAIN,adservice.kugou.com
