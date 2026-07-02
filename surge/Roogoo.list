@@ -1,0 +1,12 @@
+# ============================================================
+# Roogoo — 无边界支付/虚拟卡平台规则集
+# 覆盖: roogoo.com(主站/h5/help) / roogoo.shop(App 入口) / roogoo.money
+# Format: Surge / Surfboard
+# ============================================================
+
+# 主站 & H5 & 帮助中心（www/h5/help.roogoo.com）
+DOMAIN-SUFFIX,roogoo.com
+# App 启动/下载入口（wap.roogoo.shop）
+DOMAIN-SUFFIX,roogoo.shop
+# 备用官网
+DOMAIN-SUFFIX,roogoo.money

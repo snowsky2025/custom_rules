@@ -1,0 +1,12 @@
+# ============================================================
+# Coinepay — 虚拟信用卡平台规则集
+# 覆盖: coinepay.net(主站/app 控制台) / coinepay.me / coinepay.cc
+# Format: Surge / Surfboard
+# ============================================================
+
+# 主站 & 控制台（www/app.coinepay.net）
+DOMAIN-SUFFIX,coinepay.net
+# 备用官网
+DOMAIN-SUFFIX,coinepay.me
+# 文档/推广站
+DOMAIN-SUFFIX,coinepay.cc

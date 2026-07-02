@@ -1,0 +1,6 @@
+# Roogoo — Clash Rule Provider
+# 无边界支付/虚拟卡平台: roogoo.com(主站/h5/help) / roogoo.shop(App 入口) / roogoo.money
+payload:
+- +.roogoo.com
+- +.roogoo.shop
+- +.roogoo.money

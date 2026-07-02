@@ -1,0 +1,6 @@
+# Coinepay — Clash Rule Provider
+# 虚拟信用卡平台: coinepay.net(主站/app 控制台) / coinepay.me / coinepay.cc
+payload:
+- +.coinepay.net
+- +.coinepay.me
+- +.coinepay.cc
